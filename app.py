@@ -34,6 +34,20 @@ def team_record():
     response = extra_ipl.teamAPI(team_name)
     return response
 
+# batting record
+# api hit : Ex. http://127.0.0.1:5000/api/batting-record?batsman=V%20Kohli
+@app.route('/api/batting-record')
+def batting_record():
+    batsman_name = request.args.get('batsman')
+    response = extra_ipl.batsmanAPI(batsman_name)
+    return response
 
+# bowler record
+# api hit : Ex. http://127.0.0.1:5000/api/bowler-record?bowler=Kuldeep%20Yadav
+@app.route('/api/bowler-record')
+def bowling_record():
+    bowler_name = request.args.get('bowler')
+    response = extra_ipl.bowlerAPI(bowler_name)
+    return response
 
 app.run(debug=True)
